@@ -1,6 +1,5 @@
 import streamlit as st
 import os
-import embed_pdf
 import time
 
 from langchain.agents.openai_assistant import OpenAIAssistantRunnable
@@ -82,14 +81,7 @@ if not os.getenv('OPENAI_API_KEY', '').startswith("sk-"):
         "OpenAI API Key", type="password"
     )
 else:
-    if st.sidebar.button("Fetch Latest News"):
-        st.sidebar.info("Fetching Latest Updates...")
-        try:
-            embed_pdf.embed_all_pdf_docs()
-            st.sidebar.info("Done!")
-        except Exception as e:
-            st.sidebar.error(e)
-            st.sidebar.error("Failed to embed documents.")
+    pass
 
 # create the app
 st.title("ALIVIA AI - Revenue Cycle Assistant")
